@@ -1,6 +1,6 @@
 ## DEPENDENCIES ####
 library(mlogit)
-
+library(stargazer)
 ## LOAD DATA ####
 # Load data
 d <- read.csv("https://www.dropbox.com/s/gy8hitd47bumzvg/CE_R.csv?dl=1")
@@ -41,7 +41,7 @@ baseline_mxl <- mlogit(choice~price + asc + pregnant + baby + child + protection
                                 info_cn_pow_ownrisk = 'n', info_cn_pow_duration = 'n'), 
                        R = draws, Halton = NA, print.level = 0, panel = TRUE, ncores = 2)
 
-baseline_aic <- AIC(baseline.mxl)
+baseline_aic <- AIC(baseline_mxl)
 
 noschool_mxl <- mlogit(choice ~ price + asc + pregnant + baby + child + protection + 
                          own_risk + duration + noschool_pregnant + noschool_baby + noschool_child + 
@@ -64,7 +64,7 @@ noschool_mxl <- mlogit(choice ~ price + asc + pregnant + baby + child + protecti
                                 info_cn_pow_duration = 'n'), 
                        R = draws, Halton = NA, print.level = 0, panel = TRUE, ncores = 2)
 
-noschool_aic <- AIC(noschool.mxl)
+noschool_aic <- AIC(noschool_mxl)
 
 hhmostlyme_mxl <- mlogit(choice ~ price + asc + pregnant + baby + child + protection + 
                            own_risk + duration + hh_mostly_me_pregnant + hh_mostly_me_baby + 
@@ -87,7 +87,7 @@ hhmostlyme_mxl <- mlogit(choice ~ price + asc + pregnant + baby + child + protec
                                   info_cn_pow_duration = 'n'), 
                          R = draws, Halton = NA, print.level = 0, panel = TRUE, ncores = 2)
 
-hhmostlyme_aic <- AIC(hhmostlyme.mxl)
+hhmostlyme_aic <- AIC(hhmostlyme_mxl)
 
 monsoonmalaria_mxl <- mlogit(choice ~ price + asc + pregnant + baby + child + protection + 
                                own_risk + duration + monsoon_malaria_pregnant + 
@@ -113,7 +113,7 @@ monsoonmalaria_mxl <- mlogit(choice ~ price + asc + pregnant + baby + child + pr
                                       info_cn_pow_duration = 'n'), 
                              R = draws, Halton = NA, print.level = 0, panel = TRUE, ncores = 2)
 
-monsoonmalaria_aic <- AIC(monsoonmalaria.mxl)
+monsoonmalaria_aic <- AIC(monsoonmalaria_mxl)
 
 
 symptommal_mxl <- mlogit(choice ~ price + asc + pregnant + baby + child + protection + own_risk + 
@@ -137,7 +137,7 @@ symptommal_mxl <- mlogit(choice ~ price + asc + pregnant + baby + child + protec
                                   info_cn_pow_duration = 'n'), 
                          R = draws, Halton = NA, print.level = 0, panel = TRUE, ncores = 2)
 
-symptommal_aic <- AIC(symptommal.mxl)
+symptommal_aic <- AIC(symptommal_mxl)
 
 lnhhincome_mxl <- mlogit(choice ~ price + asc + pregnant + baby + child + protection + own_risk + 
                            duration + ln_hh_income_pregnant + ln_hh_income_baby + 
@@ -160,7 +160,7 @@ lnhhincome_mxl <- mlogit(choice ~ price + asc + pregnant + baby + child + protec
                                   info_cn_pow_duration = 'n'), 
                          R = draws, Halton = NA, print.level = 0, panel = TRUE,ncores = 2)
 
-lnhhincome_aic <- AIC(lnhhincome.mxl)
+lnhhincome_aic <- AIC(lnhhincome_mxl)
 
 hadmalaria_mxl <- mlogit(choice ~ price + asc + pregnant + baby + child + protection + own_risk + 
                            duration + hadmalaria_pregnant + hadmalaria_baby + hadmalaria_child + 
@@ -183,7 +183,7 @@ hadmalaria_mxl <- mlogit(choice ~ price + asc + pregnant + baby + child + protec
                                   info_cn_pow_duration = 'n'), 
                          R = draws, Halton = NA, print.level = 0, panel = TRUE, ncores = 2)
 
-hadmalaria_aic <- AIC(hadmalaria.mxl)
+hadmalaria_aic <- AIC(hadmalaria_mxl)
 
 mosqbreed_mxl <- mlogit(choice ~ price + asc + pregnant + baby + child + protection + own_risk + 
                           duration + mosq_breed_pregnant + mosq_breed_baby + mosq_breed_child + 
@@ -206,7 +206,7 @@ mosqbreed_mxl <- mlogit(choice ~ price + asc + pregnant + baby + child + protect
                                  info_cn_pow_duration = 'n'), 
                         R = draws, Halton = NA, print.level = 0, panel = TRUE, ncores = 2)
 
-mosqbreed_aic <- AIC(mosqbreed.mxl)
+mosqbreed_aic <- AIC(mosqbreed_mxl)
 
 malrisk_mxl <- mlogit(choice ~ price + asc + pregnant + baby + child + protection + duration + 
                         mal_risk_pregnant + mal_risk_baby + mal_risk_child + mal_risk_protection +
@@ -227,7 +227,7 @@ malrisk_mxl <- mlogit(choice ~ price + asc + pregnant + baby + child + protectio
                                info_cn_pow_ownrisk = 'n', info_cn_pow_duration = 'n'), 
                       R = draws, Halton = NA, print.level = 0, panel = TRUE,ncores = 2)
 
-malrisk_aic <- AIC(malrisk.mxl)
+malrisk_aic <- AIC(malrisk_mxl)
 
 varprior_mxl <- mlogit(choice ~ price + asc + pregnant + baby + child + protection + own_risk +
                          duration + var_prior_pregnant + var_prior_baby + var_prior_child + 
@@ -250,7 +250,7 @@ varprior_mxl <- mlogit(choice ~ price + asc + pregnant + baby + child + protecti
                                 info_cn_pow_duration = 'n'), 
                        R = draws, Halton = NA, print.level = 0, panel = TRUE, ncores = 2)
 
-varprior_aic <- AIC(varprior.mxl)
+varprior_aic <- AIC(varprior_mxl)
 
 write.table(
   stargazer(
